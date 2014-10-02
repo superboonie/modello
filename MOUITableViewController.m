@@ -6,16 +6,15 @@
 //  Copyright (c) 2014 ELC Technologies. All rights reserved.
 //
 
-#import "ElementsTableViewController.h"
-#import "ArrayDataSource.h"
+#import "MOUITableViewController.h"
 
-@interface ElementsTableViewController ()
+@interface MOUITableViewController ()
 
-@property (nonatomic, strong) NSArray *elementsDataSource;
+@property (nonatomic, strong) NSArray *datasource;
 
 @end
 
-@implementation ElementsTableViewController
+@implementation MOUITableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,7 +28,7 @@
 }
 
 - (void)setupTableView {
-    self.elementsDataSource = @[
+    self.datasource = @[
                                 @"Action sheet", @"Activity indicator", @"Alert view",
                                 @"Bar button item",
                                 @"Button",
@@ -41,13 +40,15 @@
                                 @"Mapkit view",
                                 @"Navigation bar",
                                 @"Page control", @"Picker view", @"Progress view",
-                                @"Scroll view", @"Search bar", @"Segmented control", @"Slider", @"Stepper", @"Switch",
+                                @"Scroll view", @"Search bar", @"Segmented control", @"Sidebar", @"Hamburger", @"Slider", @"Stepper", @"Switch",
                                 @"Tab bar", @"Table view", @"Table view cell - Disclosure indicator", @"Table view cell - Detail disclosure", @"Table view cell - Checkmark",
                                 @"Table view cell - Detail",
-                                @"Text field", @"Text view", @"Toolbar",
-                                @"Web view"];
+                                @"Text field", @"Text view", @"Tool bar",
+                                @"Web view"
+                        ];
     
-    self.tableView.dataSource = self.elementsDataSource;
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,23 +60,34 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.elementsDataSource.count;
+    return self.datasource.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
+    NSString *element = self.datasource[indexPath.row];
+    cell.textLabel.text = element;
+    cell.accessoryType = UITableViewCellAccessoryNone;
+
+    if (cell.selected) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
+    NSLog(@"cell.selected: %d", cell.selected);
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -84,6 +96,19 @@
     return YES;
 }
 */
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    cell.selected = !cell.selected;
+    
+    if (cell.selected) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+}
 
 /*
 // Override to support editing the table view.

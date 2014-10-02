@@ -6,11 +6,11 @@
 //  Copyright 2010 ELC Technologies. All rights reserved.
 //
 
-#import "ModelloAppDelegate.h"
-#import "ModelloMainViewController.h"
+#import "MOAppDelegate.h"
+#import "MOMainViewController.h"
 #import <Parse/Parse.h>
 
-@implementation ModelloAppDelegate
+@implementation MOAppDelegate
 
 //Using generated synthesizers
 

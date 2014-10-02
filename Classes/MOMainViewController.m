@@ -6,18 +6,18 @@
 //  Copyright 2010 ELC Technologies. All rights reserved.
 //
 
-#import "ModelloAppDelegate.h"
-#import "ModelloMainViewController.h"
+#import "MOAppDelegate.h"
+#import "MOMainViewController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
 
-@interface ModelloMainViewController ()
+@interface MOMainViewController ()
 
 @property (nonatomic, strong) ALAssetsLibrary *specialLibrary;
 
 @end
 
-@implementation ModelloMainViewController
+@implementation MOMainViewController
 
 //Using generated synthesizers
 

@@ -15,12 +15,12 @@
 		1A2C100917026CF0004FAFA0 /* ELCAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C100117026CF0004FAFA0 /* ELCAssetCell.m */; };
 		1A4C631417380272001E0978 /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4C631217380272001E0978 /* Overlay.png */; };
 		1A4C631517380272001E0978 /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4C631317380272001E0978 /* Overlay@2x.png */; };
-		1D3623260D0F684500981E51 /* ModelloAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* ModelloAppDelegate.m */; };
+		1D3623260D0F684500981E51 /* MOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MOAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		28D7ACF80DDB3853001CB0EB /* ModelloMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* ModelloMainViewController.m */; };
+		28D7ACF80DDB3853001CB0EB /* MOMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* MOMainViewController.m */; };
 		4AAFDA62194840F20020FCC4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAFDA61194840F20020FCC4 /* MobileCoreServices.framework */; };
 		525BD17219DBA2D200EA7629 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525BD17119DBA2D200EA7629 /* Images.xcassets */; };
 		525BD17719DCD7B700EA7629 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525BD17419DCD7B700EA7629 /* Bolts.framework */; };
@@ -35,9 +35,10 @@
 		525BD18719DCD89E00EA7629 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525BD18619DCD89E00EA7629 /* StoreKit.framework */; };
 		525BD18919DCD8A600EA7629 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525BD18819DCD8A600EA7629 /* SystemConfiguration.framework */; };
 		525BD1FB19DCF18100EA7629 /* Modello.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525BD1FA19DCF18100EA7629 /* Modello.storyboard */; };
-		525BD1FE19DCFD2F00EA7629 /* ElementsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 525BD1FD19DCFD2F00EA7629 /* ElementsTableViewController.m */; };
-		525BD20119DCFD4900EA7629 /* CategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 525BD20019DCFD4900EA7629 /* CategoryTableViewController.m */; };
-		525BD20419DD020B00EA7629 /* ArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 525BD20319DD020B00EA7629 /* ArrayDataSource.m */; };
+		525BD1FE19DCFD2F00EA7629 /* MOUITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 525BD1FD19DCFD2F00EA7629 /* MOUITableViewController.m */; };
+		525BD20119DCFD4900EA7629 /* MOUXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 525BD20019DCFD4900EA7629 /* MOUXTableViewController.m */; };
+		525BD20719DD7AEE00EA7629 /* MOPlatformsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 525BD20619DD7AEE00EA7629 /* MOPlatformsTableViewController.m */; };
+		525BD20A19DD7E4600EA7629 /* MOCategoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 525BD20919DD7E4600EA7629 /* MOCategoriesTableViewController.m */; };
 		83C6BC9714476B280064D71D /* elc-ios-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C6BC9514476B280064D71D /* elc-ios-icon@2x.png */; };
 		83C6BC9814476B280064D71D /* elc-ios-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C6BC9614476B280064D71D /* elc-ios-icon.png */; };
 		E29A5E3C1239C42A008BB149 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29A5E3B1239C42A008BB149 /* AssetsLibrary.framework */; };
@@ -60,14 +61,14 @@
 		1A4C631217380272001E0978 /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Overlay.png; path = Classes/ELCImagePicker/Resources/Overlay.png; sourceTree = "<group>"; };
 		1A4C631317380272001E0978 /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Overlay@2x.png"; path = "Classes/ELCImagePicker/Resources/Overlay@2x.png"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* ModelloAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelloAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* ModelloAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelloAppDelegate.m; sourceTree = "<group>"; };
+		1D3623240D0F684500981E51 /* MOAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* MOAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Modello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		230644B815F8A5A6007679C7 /* ELCAssetSelectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCAssetSelectionDelegate.h; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		28D7ACF60DDB3853001CB0EB /* ModelloMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelloMainViewController.h; sourceTree = "<group>"; };
-		28D7ACF70DDB3853001CB0EB /* ModelloMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelloMainViewController.m; sourceTree = "<group>"; };
+		28D7ACF60DDB3853001CB0EB /* MOMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOMainViewController.h; sourceTree = "<group>"; };
+		28D7ACF70DDB3853001CB0EB /* MOMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOMainViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Modello_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Modello_Prefix.pch; sourceTree = "<group>"; };
 		4AAFDA61194840F20020FCC4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -84,12 +85,14 @@
 		525BD18619DCD89E00EA7629 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		525BD18819DCD8A600EA7629 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		525BD1FA19DCF18100EA7629 /* Modello.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Modello.storyboard; sourceTree = "<group>"; };
-		525BD1FC19DCFD2F00EA7629 /* ElementsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElementsTableViewController.h; path = ../ElementsTableViewController.h; sourceTree = "<group>"; };
-		525BD1FD19DCFD2F00EA7629 /* ElementsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ElementsTableViewController.m; path = ../ElementsTableViewController.m; sourceTree = "<group>"; };
-		525BD1FF19DCFD4900EA7629 /* CategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewController.h; sourceTree = "<group>"; };
-		525BD20019DCFD4900EA7629 /* CategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewController.m; sourceTree = "<group>"; };
-		525BD20219DD020B00EA7629 /* ArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayDataSource.h; sourceTree = "<group>"; };
-		525BD20319DD020B00EA7629 /* ArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayDataSource.m; sourceTree = "<group>"; };
+		525BD1FC19DCFD2F00EA7629 /* MOUITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOUITableViewController.h; path = ../MOUITableViewController.h; sourceTree = "<group>"; };
+		525BD1FD19DCFD2F00EA7629 /* MOUITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOUITableViewController.m; path = ../MOUITableViewController.m; sourceTree = "<group>"; };
+		525BD1FF19DCFD4900EA7629 /* MOUXTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOUXTableViewController.h; sourceTree = "<group>"; };
+		525BD20019DCFD4900EA7629 /* MOUXTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOUXTableViewController.m; sourceTree = "<group>"; };
+		525BD20519DD7AEE00EA7629 /* MOPlatformsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOPlatformsTableViewController.h; sourceTree = "<group>"; };
+		525BD20619DD7AEE00EA7629 /* MOPlatformsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOPlatformsTableViewController.m; sourceTree = "<group>"; };
+		525BD20819DD7E4600EA7629 /* MOCategoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOCategoriesTableViewController.h; sourceTree = "<group>"; };
+		525BD20919DD7E4600EA7629 /* MOCategoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOCategoriesTableViewController.m; sourceTree = "<group>"; };
 		5FAEB088190A3FA9002D73C4 /* ELCImagePickerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerHeader.h; sourceTree = "<group>"; };
 		83C6BC9514476B280064D71D /* elc-ios-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elc-ios-icon@2x.png"; sourceTree = "<group>"; };
 		83C6BC9614476B280064D71D /* elc-ios-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elc-ios-icon.png"; sourceTree = "<group>"; };
@@ -134,16 +137,18 @@
 			children = (
 				525BD17319DCD7B700EA7629 /* parse-library-1.4.1 */,
 				4252A0981593013500086D05 /* ELCImagePicker */,
-				1D3623240D0F684500981E51 /* ModelloAppDelegate.h */,
-				1D3623250D0F684500981E51 /* ModelloAppDelegate.m */,
-				28D7ACF60DDB3853001CB0EB /* ModelloMainViewController.h */,
-				28D7ACF70DDB3853001CB0EB /* ModelloMainViewController.m */,
-				525BD1FC19DCFD2F00EA7629 /* ElementsTableViewController.h */,
-				525BD1FD19DCFD2F00EA7629 /* ElementsTableViewController.m */,
-				525BD1FF19DCFD4900EA7629 /* CategoryTableViewController.h */,
-				525BD20019DCFD4900EA7629 /* CategoryTableViewController.m */,
-				525BD20219DD020B00EA7629 /* ArrayDataSource.h */,
-				525BD20319DD020B00EA7629 /* ArrayDataSource.m */,
+				1D3623240D0F684500981E51 /* MOAppDelegate.h */,
+				1D3623250D0F684500981E51 /* MOAppDelegate.m */,
+				28D7ACF60DDB3853001CB0EB /* MOMainViewController.h */,
+				28D7ACF70DDB3853001CB0EB /* MOMainViewController.m */,
+				525BD1FC19DCFD2F00EA7629 /* MOUITableViewController.h */,
+				525BD1FD19DCFD2F00EA7629 /* MOUITableViewController.m */,
+				525BD1FF19DCFD4900EA7629 /* MOUXTableViewController.h */,
+				525BD20019DCFD4900EA7629 /* MOUXTableViewController.m */,
+				525BD20519DD7AEE00EA7629 /* MOPlatformsTableViewController.h */,
+				525BD20619DD7AEE00EA7629 /* MOPlatformsTableViewController.m */,
+				525BD20819DD7E4600EA7629 /* MOCategoriesTableViewController.h */,
+				525BD20919DD7E4600EA7629 /* MOCategoriesTableViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -322,14 +327,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				525BD20119DCFD4900EA7629 /* CategoryTableViewController.m in Sources */,
-				1D3623260D0F684500981E51 /* ModelloAppDelegate.m in Sources */,
+				525BD20119DCFD4900EA7629 /* MOUXTableViewController.m in Sources */,
+				1D3623260D0F684500981E51 /* MOAppDelegate.m in Sources */,
 				F1DF7842196FA475003524A2 /* ELCConsole.m in Sources */,
-				525BD20419DD020B00EA7629 /* ArrayDataSource.m in Sources */,
-				28D7ACF80DDB3853001CB0EB /* ModelloMainViewController.m in Sources */,
+				28D7ACF80DDB3853001CB0EB /* MOMainViewController.m in Sources */,
+				525BD20A19DD7E4600EA7629 /* MOCategoriesTableViewController.m in Sources */,
+				525BD20719DD7AEE00EA7629 /* MOPlatformsTableViewController.m in Sources */,
 				1A2C100517026CF0004FAFA0 /* ELCAssetTablePicker.m in Sources */,
 				1A2C100617026CF0004FAFA0 /* ELCImagePickerController.m in Sources */,
-				525BD1FE19DCFD2F00EA7629 /* ElementsTableViewController.m in Sources */,
+				525BD1FE19DCFD2F00EA7629 /* MOUITableViewController.m in Sources */,
 				1A2C100717026CF0004FAFA0 /* ELCAlbumPickerController.m in Sources */,
 				1A2C100817026CF0004FAFA0 /* ELCAsset.m in Sources */,
 				F1DF7843196FA475003524A2 /* ELCOverlayImageView.m in Sources */,

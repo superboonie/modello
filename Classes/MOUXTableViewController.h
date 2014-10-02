@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CategoryTableViewController : UITableViewController
+@interface MOUXTableViewController : UITableViewController
 
 @end
