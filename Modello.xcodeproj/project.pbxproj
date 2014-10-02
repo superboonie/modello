@@ -35,6 +35,9 @@
 		525BD18719DCD89E00EA7629 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525BD18619DCD89E00EA7629 /* StoreKit.framework */; };
 		525BD18919DCD8A600EA7629 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525BD18819DCD8A600EA7629 /* SystemConfiguration.framework */; };
 		525BD1FB19DCF18100EA7629 /* Modello.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525BD1FA19DCF18100EA7629 /* Modello.storyboard */; };
+		525BD1FE19DCFD2F00EA7629 /* ElementsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 525BD1FD19DCFD2F00EA7629 /* ElementsTableViewController.m */; };
+		525BD20119DCFD4900EA7629 /* CategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 525BD20019DCFD4900EA7629 /* CategoryTableViewController.m */; };
+		525BD20419DD020B00EA7629 /* ArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 525BD20319DD020B00EA7629 /* ArrayDataSource.m */; };
 		83C6BC9714476B280064D71D /* elc-ios-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C6BC9514476B280064D71D /* elc-ios-icon@2x.png */; };
 		83C6BC9814476B280064D71D /* elc-ios-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C6BC9614476B280064D71D /* elc-ios-icon.png */; };
 		E29A5E3C1239C42A008BB149 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29A5E3B1239C42A008BB149 /* AssetsLibrary.framework */; };
@@ -81,6 +84,12 @@
 		525BD18619DCD89E00EA7629 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		525BD18819DCD8A600EA7629 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		525BD1FA19DCF18100EA7629 /* Modello.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Modello.storyboard; sourceTree = "<group>"; };
+		525BD1FC19DCFD2F00EA7629 /* ElementsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElementsTableViewController.h; path = ../ElementsTableViewController.h; sourceTree = "<group>"; };
+		525BD1FD19DCFD2F00EA7629 /* ElementsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ElementsTableViewController.m; path = ../ElementsTableViewController.m; sourceTree = "<group>"; };
+		525BD1FF19DCFD4900EA7629 /* CategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewController.h; sourceTree = "<group>"; };
+		525BD20019DCFD4900EA7629 /* CategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewController.m; sourceTree = "<group>"; };
+		525BD20219DD020B00EA7629 /* ArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayDataSource.h; sourceTree = "<group>"; };
+		525BD20319DD020B00EA7629 /* ArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayDataSource.m; sourceTree = "<group>"; };
 		5FAEB088190A3FA9002D73C4 /* ELCImagePickerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerHeader.h; sourceTree = "<group>"; };
 		83C6BC9514476B280064D71D /* elc-ios-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elc-ios-icon@2x.png"; sourceTree = "<group>"; };
 		83C6BC9614476B280064D71D /* elc-ios-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "elc-ios-icon.png"; sourceTree = "<group>"; };
@@ -129,6 +138,12 @@
 				1D3623250D0F684500981E51 /* ModelloAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* ModelloMainViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* ModelloMainViewController.m */,
+				525BD1FC19DCFD2F00EA7629 /* ElementsTableViewController.h */,
+				525BD1FD19DCFD2F00EA7629 /* ElementsTableViewController.m */,
+				525BD1FF19DCFD4900EA7629 /* CategoryTableViewController.h */,
+				525BD20019DCFD4900EA7629 /* CategoryTableViewController.m */,
+				525BD20219DD020B00EA7629 /* ArrayDataSource.h */,
+				525BD20319DD020B00EA7629 /* ArrayDataSource.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -307,11 +322,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				525BD20119DCFD4900EA7629 /* CategoryTableViewController.m in Sources */,
 				1D3623260D0F684500981E51 /* ModelloAppDelegate.m in Sources */,
 				F1DF7842196FA475003524A2 /* ELCConsole.m in Sources */,
+				525BD20419DD020B00EA7629 /* ArrayDataSource.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* ModelloMainViewController.m in Sources */,
 				1A2C100517026CF0004FAFA0 /* ELCAssetTablePicker.m in Sources */,
 				1A2C100617026CF0004FAFA0 /* ELCImagePickerController.m in Sources */,
+				525BD1FE19DCFD2F00EA7629 /* ElementsTableViewController.m in Sources */,
 				1A2C100717026CF0004FAFA0 /* ELCAlbumPickerController.m in Sources */,
 				1A2C100817026CF0004FAFA0 /* ELCAsset.m in Sources */,
 				F1DF7843196FA475003524A2 /* ELCOverlayImageView.m in Sources */,
