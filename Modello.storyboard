@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="UYm-CV-uys">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Modello Main View Controller-->
+        <scene sceneID="eul-zi-buF">
+            <objects>
+                <viewController id="UYm-CV-uys" customClass="ModelloMainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jQB-oI-RcQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="bpV-oI-JDb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="svB-9S-csF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="App Name" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-A8-sxL">
+                                <rect key="frame" x="24" y="31" width="276" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="UYm-CV-uys" id="3J7-oj-35X"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLC-rC-hLv">
+                                <rect key="frame" x="139" y="69" width="61" height="30"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Category">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEO-XX-FE6">
+                                <rect key="frame" x="233" y="69" width="63" height="30"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Elements">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JxS-Pl-68I">
+                                <rect key="frame" x="24" y="69" width="84" height="30"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Screenshots">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="launchController" destination="UYm-CV-uys" eventType="touchUpInside" id="nmq-h1-qS8"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Phg-kT-cpn">
+                                <rect key="frame" x="0.0" y="109" width="320" height="390"/>
+                                <color key="backgroundColor" red="0.96950733418367352" green="0.96950733418367352" blue="0.96950733418367352" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBF-rZ-NVL">
+                                <rect key="frame" x="247" y="518" width="49" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="emp-Xt-Ck3"/>
+                                </constraints>
+                                <state key="normal" title="Submit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7v-aI-8UJ">
+                                <rect key="frame" x="24" y="518" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="F2v-9K-bd2"/>
+                                </constraints>
+                                <state key="normal" title="Reset">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UHc-Op-h3e">
+                                <rect key="frame" x="-8" y="109" width="328" height="390"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aQR-A8-sxL" firstAttribute="leading" secondItem="svB-9S-csF" secondAttribute="leadingMargin" constant="8" id="3eb-YT-58o"/>
+                            <constraint firstItem="JxS-Pl-68I" firstAttribute="leading" secondItem="svB-9S-csF" secondAttribute="leadingMargin" constant="8" id="4me-xq-BNa"/>
+                            <constraint firstItem="NEO-XX-FE6" firstAttribute="leading" secondItem="PLC-rC-hLv" secondAttribute="trailing" constant="33" id="5g6-7p-U0b"/>
+                            <constraint firstItem="aQR-A8-sxL" firstAttribute="top" secondItem="jQB-oI-RcQ" secondAttribute="bottom" constant="11" id="FSd-6k-wX1"/>
+                            <constraint firstItem="PLC-rC-hLv" firstAttribute="leading" secondItem="JxS-Pl-68I" secondAttribute="trailing" constant="31" id="H5r-cK-hFd"/>
+                            <constraint firstItem="PLC-rC-hLv" firstAttribute="top" secondItem="aQR-A8-sxL" secondAttribute="bottom" constant="8" id="Wqx-iM-bXK"/>
+                            <constraint firstItem="j7v-aI-8UJ" firstAttribute="leading" secondItem="svB-9S-csF" secondAttribute="leadingMargin" constant="8" id="Yaf-YD-CtJ"/>
+                            <constraint firstItem="bpV-oI-JDb" firstAttribute="top" secondItem="j7v-aI-8UJ" secondAttribute="bottom" constant="20" id="cKg-oN-eRJ"/>
+                            <constraint firstItem="bpV-oI-JDb" firstAttribute="top" secondItem="tBF-rZ-NVL" secondAttribute="bottom" constant="20" id="hHr-8U-c3F"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tBF-rZ-NVL" secondAttribute="trailing" constant="8" id="kar-y3-i4f"/>
+                            <constraint firstItem="NEO-XX-FE6" firstAttribute="top" secondItem="aQR-A8-sxL" secondAttribute="bottom" constant="8" id="oJP-cK-StL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aQR-A8-sxL" secondAttribute="trailing" constant="4" id="tT5-Us-9dL"/>
+                            <constraint firstItem="JxS-Pl-68I" firstAttribute="top" secondItem="aQR-A8-sxL" secondAttribute="bottom" constant="8" id="zmy-zh-TFz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="UHc-Op-h3e" id="gxK-gk-LHw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oth-pz-G1F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-313" y="325"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>ImagePicker</string>
+	<string>Modello</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
@@ -16,36 +16,27 @@
 		<string>elc-ios-icon.png</string>
 	</array>
 	<key>CFBundleIcons</key>
-	<dict>
-		<key>CFBundlePrimaryIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string>elc-ios-icon@2x.png</string>
-				<string>elc-ios-icon.png</string>
-			</array>
-			<key>UIPrerenderedIcon</key>
-			<false/>
-		</dict>
-	</dict>
+	<dict/>
+	<key>CFBundleIcons~ipad</key>
+	<dict/>
 	<key>CFBundleIdentifier</key>
-	<string>com.burnsidedigital.elcimagepickerdemo</string>
+	<string>com.nanaimostudio.modello</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSMainNibFile</key>
-	<string>MainWindow</string>
-	<key>NSMainNibFile~ipad</key>
-	<string>MainWindow-iPad</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Modello</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
