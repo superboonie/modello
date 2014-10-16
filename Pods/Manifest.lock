@@ -1,0 +1,13 @@
+PODS:
+  - ELCImagePickerController (0.2.0)
+  - MBProgressHUD (0.9)
+
+DEPENDENCIES:
+  - ELCImagePickerController (~> 0.2)
+  - MBProgressHUD (~> 0.9)
+
+SPEC CHECKSUMS:
+  ELCImagePickerController: 4dc83bb6ce995f4964b0080d77ad5a01141e6db2
+  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+
+COCOAPODS: 0.34.1
