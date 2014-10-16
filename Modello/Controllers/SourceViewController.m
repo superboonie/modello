@@ -85,8 +85,8 @@
         if ([objects count] > 0) {
             entries_ = objects;
             [self.noDataLabel removeFromSuperview];
-            [self.tableView reloadData];
             [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+            [self.tableView reloadData];
             
           /* Data not found */
         } else {

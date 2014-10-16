@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		27E1E8FCC2C48962CA1C673D /* libPods-Modello.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1144E2F7F9092336410042 /* libPods-Modello.a */; };
-		E70C7BB119F0435200C49BDA /* TLWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E70C7BAC19F0435200C49BDA /* TLWrapper.m */; };
-		E70C7BB219F0435200C49BDA /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = E70C7BAE19F0435200C49BDA /* UIActionSheet+Blocks.m */; };
-		E70C7BB319F0435200C49BDA /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = E70C7BB019F0435200C49BDA /* UIAlertView+Blocks.m */; };
+		E73264C919F0458F007E1BA4 /* CreateScreenShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73264BA19F0458F007E1BA4 /* CreateScreenShotViewController.m */; };
+		E73264CA19F0458F007E1BA4 /* SourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73264BC19F0458F007E1BA4 /* SourceViewController.m */; };
+		E73264CB19F0458F007E1BA4 /* TLWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E73264C019F0458F007E1BA4 /* TLWrapper.m */; };
+		E73264CC19F0458F007E1BA4 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = E73264C219F0458F007E1BA4 /* UIActionSheet+Blocks.m */; };
+		E73264CD19F0458F007E1BA4 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = E73264C419F0458F007E1BA4 /* UIAlertView+Blocks.m */; };
+		E73264CE19F0458F007E1BA4 /* Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = E73264C719F0458F007E1BA4 /* Manager.m */; };
+		E73264D119F045C2007E1BA4 /* Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = E73264D019F045C2007E1BA4 /* Builder.m */; };
+		E73264D319F04C72007E1BA4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E73264D219F04C72007E1BA4 /* Default-568h@2x.png */; };
 		E74C80F419E9C5F4003E4072 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E74C80F319E9C5F4003E4072 /* main.m */; };
 		E74C80F719E9C5F4003E4072 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E74C80F619E9C5F4003E4072 /* AppDelegate.m */; };
 		E74C80FA19E9C5F4003E4072 /* Modello.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E74C80F819E9C5F4003E4072 /* Modello.xcdatamodeld */; };
@@ -30,11 +35,8 @@
 		E74C813119E9C79E003E4072 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E74C813019E9C79E003E4072 /* SystemConfiguration.framework */; };
 		E74C813319E9D2DA003E4072 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E74C813219E9D2DA003E4072 /* Bolts.framework */; };
 		E76952F619EB116400ABE9E6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E76952F419EB116400ABE9E6 /* Parse.framework */; };
-		E76952FA19EB161000ABE9E6 /* SourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E76952F919EB161000ABE9E6 /* SourceViewController.m */; };
 		E76952FF19EB1D7700ABE9E6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E76952FD19EB195800ABE9E6 /* Social.framework */; };
 		E769530319EB1DD600ABE9E6 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E769530219EB1DD600ABE9E6 /* Accounts.framework */; };
-		E7CEA8A219EBD71A00C4BE40 /* CreateScreenShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CEA8A119EBD71A00C4BE40 /* CreateScreenShotViewController.m */; };
-		E7CEA8A519EBF2AF00C4BE40 /* Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CEA8A419EBF2AF00C4BE40 /* Manager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,12 +53,21 @@
 		5D1144E2F7F9092336410042 /* libPods-Modello.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Modello.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FACE0FF8160C9FFD51AFB16 /* Pods-Modello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Modello.release.xcconfig"; path = "Pods/Target Support Files/Pods-Modello/Pods-Modello.release.xcconfig"; sourceTree = "<group>"; };
 		AC4A82F8952BF9E5440A0E14 /* Pods-Modello.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Modello.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Modello/Pods-Modello.debug.xcconfig"; sourceTree = "<group>"; };
-		E70C7BAB19F0435200C49BDA /* TLWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLWrapper.h; sourceTree = "<group>"; };
-		E70C7BAC19F0435200C49BDA /* TLWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLWrapper.m; sourceTree = "<group>"; };
-		E70C7BAD19F0435200C49BDA /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
-		E70C7BAE19F0435200C49BDA /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
-		E70C7BAF19F0435200C49BDA /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
-		E70C7BB019F0435200C49BDA /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		E73264B919F0458F007E1BA4 /* CreateScreenShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateScreenShotViewController.h; sourceTree = "<group>"; };
+		E73264BA19F0458F007E1BA4 /* CreateScreenShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateScreenShotViewController.m; sourceTree = "<group>"; };
+		E73264BB19F0458F007E1BA4 /* SourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceViewController.h; sourceTree = "<group>"; };
+		E73264BC19F0458F007E1BA4 /* SourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceViewController.m; sourceTree = "<group>"; };
+		E73264BF19F0458F007E1BA4 /* TLWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLWrapper.h; sourceTree = "<group>"; };
+		E73264C019F0458F007E1BA4 /* TLWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLWrapper.m; sourceTree = "<group>"; };
+		E73264C119F0458F007E1BA4 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
+		E73264C219F0458F007E1BA4 /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
+		E73264C319F0458F007E1BA4 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		E73264C419F0458F007E1BA4 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		E73264C619F0458F007E1BA4 /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manager.h; sourceTree = "<group>"; };
+		E73264C719F0458F007E1BA4 /* Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manager.m; sourceTree = "<group>"; };
+		E73264CF19F045C2007E1BA4 /* Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Builder.h; sourceTree = "<group>"; };
+		E73264D019F045C2007E1BA4 /* Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Builder.m; sourceTree = "<group>"; };
+		E73264D219F04C72007E1BA4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		E74C80EE19E9C5F3003E4072 /* Modello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E74C80F219E9C5F4003E4072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E74C80F319E9C5F4003E4072 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -81,14 +92,8 @@
 		E74C813019E9C79E003E4072 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E74C813219E9D2DA003E4072 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		E76952F419EB116400ABE9E6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		E76952F819EB161000ABE9E6 /* SourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SourceViewController.h; path = Modello/SourceViewController.h; sourceTree = "<group>"; };
-		E76952F919EB161000ABE9E6 /* SourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SourceViewController.m; path = Modello/SourceViewController.m; sourceTree = "<group>"; };
 		E76952FD19EB195800ABE9E6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		E769530219EB1DD600ABE9E6 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		E7CEA8A019EBD71A00C4BE40 /* CreateScreenShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateScreenShotViewController.h; path = Modello/CreateScreenShotViewController.h; sourceTree = "<group>"; };
-		E7CEA8A119EBD71A00C4BE40 /* CreateScreenShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateScreenShotViewController.m; path = Modello/CreateScreenShotViewController.m; sourceTree = "<group>"; };
-		E7CEA8A319EBF2AF00C4BE40 /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Manager.h; path = Modello/Manager.h; sourceTree = "<group>"; };
-		E7CEA8A419EBF2AF00C4BE40 /* Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Manager.m; path = Modello/Manager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,25 +160,67 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		E70C7BAA19F0435200C49BDA /* TLAlertBlocks */ = {
+		E73264B819F0458F007E1BA4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E70C7BAB19F0435200C49BDA /* TLWrapper.h */,
-				E70C7BAC19F0435200C49BDA /* TLWrapper.m */,
-				E70C7BAD19F0435200C49BDA /* UIActionSheet+Blocks.h */,
-				E70C7BAE19F0435200C49BDA /* UIActionSheet+Blocks.m */,
-				E70C7BAF19F0435200C49BDA /* UIAlertView+Blocks.h */,
-				E70C7BB019F0435200C49BDA /* UIAlertView+Blocks.m */,
+				E73264BB19F0458F007E1BA4 /* SourceViewController.h */,
+				E73264BC19F0458F007E1BA4 /* SourceViewController.m */,
+				E73264B919F0458F007E1BA4 /* CreateScreenShotViewController.h */,
+				E73264BA19F0458F007E1BA4 /* CreateScreenShotViewController.m */,
+			);
+			name = Controllers;
+			path = Modello/Controllers;
+			sourceTree = "<group>";
+		};
+		E73264BD19F0458F007E1BA4 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				E73264BE19F0458F007E1BA4 /* TLAlertBlocks */,
+			);
+			name = Library;
+			path = Modello/Library;
+			sourceTree = "<group>";
+		};
+		E73264BE19F0458F007E1BA4 /* TLAlertBlocks */ = {
+			isa = PBXGroup;
+			children = (
+				E73264BF19F0458F007E1BA4 /* TLWrapper.h */,
+				E73264C019F0458F007E1BA4 /* TLWrapper.m */,
+				E73264C119F0458F007E1BA4 /* UIActionSheet+Blocks.h */,
+				E73264C219F0458F007E1BA4 /* UIActionSheet+Blocks.m */,
+				E73264C319F0458F007E1BA4 /* UIAlertView+Blocks.h */,
+				E73264C419F0458F007E1BA4 /* UIAlertView+Blocks.m */,
 			);
 			path = TLAlertBlocks;
+			sourceTree = "<group>";
+		};
+		E73264C519F0458F007E1BA4 /* SubSystem */ = {
+			isa = PBXGroup;
+			children = (
+				E73264C619F0458F007E1BA4 /* Manager.h */,
+				E73264C719F0458F007E1BA4 /* Manager.m */,
+				E73264CF19F045C2007E1BA4 /* Builder.h */,
+				E73264D019F045C2007E1BA4 /* Builder.m */,
+			);
+			name = SubSystem;
+			path = Modello/SubSystem;
+			sourceTree = "<group>";
+		};
+		E73264C819F0458F007E1BA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			path = Modello/View;
 			sourceTree = "<group>";
 		};
 		E74C80E519E9C5F3003E4072 = {
 			isa = PBXGroup;
 			children = (
-				E70C7BAA19F0435200C49BDA /* TLAlertBlocks */,
-				E76952FC19EB162700ABE9E6 /* SubSystem */,
-				E76952FB19EB161B00ABE9E6 /* Controllers */,
+				E73264BD19F0458F007E1BA4 /* Library */,
+				E73264C519F0458F007E1BA4 /* SubSystem */,
+				E73264B819F0458F007E1BA4 /* Controllers */,
+				E73264C819F0458F007E1BA4 /* View */,
 				E74C80F019E9C5F3003E4072 /* Modello */,
 				E74C810D19E9C5F4003E4072 /* ModelloTests */,
 				E74C80EF19E9C5F3003E4072 /* Products */,
@@ -198,6 +245,7 @@
 				E74C80F619E9C5F4003E4072 /* AppDelegate.m */,
 				E74C80FE19E9C5F4003E4072 /* Main.storyboard */,
 				E74C810119E9C5F4003E4072 /* Images.xcassets */,
+				E73264D219F04C72007E1BA4 /* Default-568h@2x.png */,
 				E74C810319E9C5F4003E4072 /* LaunchScreen.xib */,
 				E74C80F819E9C5F4003E4072 /* Modello.xcdatamodeld */,
 				E74C80F119E9C5F4003E4072 /* Supporting Files */,
@@ -229,26 +277,6 @@
 				E74C810F19E9C5F4003E4072 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E76952FB19EB161B00ABE9E6 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				E76952F819EB161000ABE9E6 /* SourceViewController.h */,
-				E76952F919EB161000ABE9E6 /* SourceViewController.m */,
-				E7CEA8A019EBD71A00C4BE40 /* CreateScreenShotViewController.h */,
-				E7CEA8A119EBD71A00C4BE40 /* CreateScreenShotViewController.m */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		E76952FC19EB162700ABE9E6 /* SubSystem */ = {
-			isa = PBXGroup;
-			children = (
-				E7CEA8A319EBF2AF00C4BE40 /* Manager.h */,
-				E7CEA8A419EBF2AF00C4BE40 /* Manager.m */,
-			);
-			name = SubSystem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E74C810019E9C5F4003E4072 /* Main.storyboard in Resources */,
+				E73264D319F04C72007E1BA4 /* Default-568h@2x.png in Resources */,
 				E74C810519E9C5F4003E4072 /* LaunchScreen.xib in Resources */,
 				E74C810219E9C5F4003E4072 /* Images.xcassets in Resources */,
 			);
@@ -387,15 +416,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E73264C919F0458F007E1BA4 /* CreateScreenShotViewController.m in Sources */,
+				E73264CD19F0458F007E1BA4 /* UIAlertView+Blocks.m in Sources */,
+				E73264CC19F0458F007E1BA4 /* UIActionSheet+Blocks.m in Sources */,
+				E73264D119F045C2007E1BA4 /* Builder.m in Sources */,
+				E73264CA19F0458F007E1BA4 /* SourceViewController.m in Sources */,
 				E74C80F719E9C5F4003E4072 /* AppDelegate.m in Sources */,
-				E70C7BB119F0435200C49BDA /* TLWrapper.m in Sources */,
-				E76952FA19EB161000ABE9E6 /* SourceViewController.m in Sources */,
-				E70C7BB319F0435200C49BDA /* UIAlertView+Blocks.m in Sources */,
 				E74C80FA19E9C5F4003E4072 /* Modello.xcdatamodeld in Sources */,
-				E7CEA8A219EBD71A00C4BE40 /* CreateScreenShotViewController.m in Sources */,
 				E74C80F419E9C5F4003E4072 /* main.m in Sources */,
-				E7CEA8A519EBF2AF00C4BE40 /* Manager.m in Sources */,
-				E70C7BB219F0435200C49BDA /* UIActionSheet+Blocks.m in Sources */,
+				E73264CE19F0458F007E1BA4 /* Manager.m in Sources */,
+				E73264CB19F0458F007E1BA4 /* TLWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
