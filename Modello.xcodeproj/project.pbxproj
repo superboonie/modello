@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27E1E8FCC2C48962CA1C673D /* libPods-Modello.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1144E2F7F9092336410042 /* libPods-Modello.a */; };
+		E70198FB19F08784005156C0 /* PlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E70198FA19F08784005156C0 /* PlaceholderView.m */; };
 		E73264C919F0458F007E1BA4 /* CreateScreenShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73264BA19F0458F007E1BA4 /* CreateScreenShotViewController.m */; };
 		E73264CA19F0458F007E1BA4 /* SourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73264BC19F0458F007E1BA4 /* SourceViewController.m */; };
 		E73264CE19F0458F007E1BA4 /* Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = E73264C719F0458F007E1BA4 /* Manager.m */; };
@@ -53,6 +54,8 @@
 		5D1144E2F7F9092336410042 /* libPods-Modello.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Modello.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FACE0FF8160C9FFD51AFB16 /* Pods-Modello.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Modello.release.xcconfig"; path = "Pods/Target Support Files/Pods-Modello/Pods-Modello.release.xcconfig"; sourceTree = "<group>"; };
 		AC4A82F8952BF9E5440A0E14 /* Pods-Modello.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Modello.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Modello/Pods-Modello.debug.xcconfig"; sourceTree = "<group>"; };
+		E70198F919F08784005156C0 /* PlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderView.h; sourceTree = "<group>"; };
+		E70198FA19F08784005156C0 /* PlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderView.m; sourceTree = "<group>"; };
 		E73264B919F0458F007E1BA4 /* CreateScreenShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateScreenShotViewController.h; sourceTree = "<group>"; };
 		E73264BA19F0458F007E1BA4 /* CreateScreenShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateScreenShotViewController.m; sourceTree = "<group>"; };
 		E73264BB19F0458F007E1BA4 /* SourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceViewController.h; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 		E73264C819F0458F007E1BA4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E70198F919F08784005156C0 /* PlaceholderView.h */,
+				E70198FA19F08784005156C0 /* PlaceholderView.m */,
 			);
 			name = View;
 			path = Modello/View;
@@ -423,6 +428,7 @@
 				E74C80F719E9C5F4003E4072 /* AppDelegate.m in Sources */,
 				E74C80FA19E9C5F4003E4072 /* Modello.xcdatamodeld in Sources */,
 				E74C80F419E9C5F4003E4072 /* main.m in Sources */,
+				E70198FB19F08784005156C0 /* PlaceholderView.m in Sources */,
 				E73264DD19F04DD4007E1BA4 /* UIAlertView+Blocks.m in Sources */,
 				E73264CE19F0458F007E1BA4 /* Manager.m in Sources */,
 				E73264DB19F04DD4007E1BA4 /* TLWrapper.m in Sources */,
@@ -548,8 +554,8 @@
 			baseConfigurationReference = AC4A82F8952BF9E5440A0E14 /* Pods-Modello.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Nanaimo Studio LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nanaimo Studio LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -558,7 +564,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "03673672-286b-4120-9128-88c3134e433c";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -567,8 +573,8 @@
 			baseConfigurationReference = 5FACE0FF8160C9FFD51AFB16 /* Pods-Modello.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Nanaimo Studio LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nanaimo Studio LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -577,7 +583,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "03673672-286b-4120-9128-88c3134e433c";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

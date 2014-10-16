@@ -341,12 +341,12 @@
         SourceViewController *sourceViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Source"];
         [sourceViewController setSourceName:className];
         if ([projectInfo_ objectForKey:className]) {
-            [sourceViewController setEntriesSelected:[projectInfo_ valueForKey:className] ];
+            [sourceViewController setSelectedObjects:[projectInfo_ valueForKey:className]];
         }
         
         else if ([screenshotInfo_ count]){
             NSDictionary *entry = [screenshotInfo_ objectAtIndex:currentIndex_];
-            [sourceViewController setEntriesSelected:[[entry valueForKey:className] mutableCopy]];
+            [sourceViewController setSelectedObjects:[[entry valueForKey:className] mutableCopy]];
         }
         [self.navigationController pushViewController:sourceViewController animated:YES];
         

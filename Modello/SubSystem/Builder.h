@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import <Parse/Parse.h>
+
 @interface Builder : NSObject
+
++ (PFObject *)createScreenshotFromInfo:(NSDictionary *)info
+                                parent:(PFObject *)parent;
+
++ (PFObject *)updateProject:(PFObject *)project
+             withInfo:(NSDictionary *)newInfo;
 
 @end

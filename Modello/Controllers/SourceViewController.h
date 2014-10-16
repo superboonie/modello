@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SourceViewController : UITableViewController
+#import "Manager.h"
+
+@interface SourceViewController : PFQueryTableViewController
 @property (nonatomic, strong) NSString *sourceName;
-@property (nonatomic, strong) NSMutableArray *entriesSelected;
+@property (nonatomic, strong) NSMutableArray *selectedObjects;
 @end

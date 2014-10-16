@@ -8,26 +8,31 @@
 
 #import "SourceViewController.h"
 
-#import "Manager.h"
+#import "PlaceholderView.h"
 #import "CreateScreenShotViewController.h"
 
-@interface SourceViewController () {
-    NSArray *entries_;
-}
-@property (nonatomic, strong) UILabel *noDataLabel;
+@interface SourceViewController ()
 @end
 
 @implementation SourceViewController
 
 #pragma mark - Life Cycle 
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // This table displays items in the Todo class
+        self.pullToRefreshEnabled = YES;
+        self.paginationEnabled = YES;
+        self.objectsPerPage = 25;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // HUD while data is loading
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     /* Retieve the options */
     if (self.sourceName) {
@@ -37,92 +42,37 @@
                                                                               target:self
                                                                               action:@selector(save:)];
         [self.navigationItem setRightBarButtonItem:save];
-        
-        // Load the source from server using the source name
-        [Manager findObjectsOfSource:self.sourceName
-                   completionHandler:^(NSArray *objects, NSError *error) {
-                       [self reloadDataWithObjects:objects error:error];
-                   }];
-    }
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    /* Retrieve the names of the project names from the server */
-    if (!self.sourceName) {
-        [self.navigationItem setLeftBarButtonItem:nil];
-        [self refresh:nil];
-        
-        /* Refresh projects names when the user create a new one */
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(refresh:)
-                                                     name:@"Load Projects Names"
-                                                   object:nil];
-    }
-}
-
-#pragma mark - Refresh
-
-- (void)refresh:(NSNotification *)notifications
-{
-    /* Load projects names */
-    [Manager findObjectsOfSource:@"Project"
-               completionHandler:^(NSArray *objects, NSError *error) {
-                   [self reloadDataWithObjects:objects error:error];
-               }];
-}
-
-- (void)reloadDataWithObjects:(NSArray *)objects error:(NSError *)error
-{
-    /* Hide HUD when data is loaded */
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-    
-    /* Show data when there is no error */
-    if (!error) {
-        /* Data found */
-        if ([objects count] > 0) {
-            entries_ = objects;
-            [self.noDataLabel removeFromSuperview];
-            [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-            [self.tableView reloadData];
-            
-          /* Data not found */
-        } else {
-            CGRect frame = self.view.frame;
-            self.noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), 30.f)];
-            [self.noDataLabel setCenter:CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame) - 30.f)];
-            [self.noDataLabel setTextAlignment:NSTextAlignmentCenter];
-            [self.noDataLabel setText:@"No project found"];
-            [self.tableView addSubview:self.noDataLabel];
-        }
-        
-        
     } else {
-        [UIAlertView showWithTitle:@"Error"
-                           message:[error localizedDescription]
-                 cancelButtonTitle:@"OK"
-                 completionHandler:NULL];
+        [self.navigationItem setLeftBarButtonItem:nil];
     }
 }
 
-- (PFObject *)selectedEntriesdoesContain:(PFObject *)entry
+- (void)objectsDidLoad:(NSError *)error
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name like %@", entry[@"name"]];
-    return [[self.entriesSelected filteredArrayUsingPredicate:predicate] lastObject];
+    [super objectsDidLoad:error];
+    
+    /* results Found */
+    if ([self.objects count] > 0) {
+        [PlaceholderView hidePlaceholder];
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+        
+        /* no results found */
+    } else {
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        [PlaceholderView showPlaceholderWithFrame:self.view.frame inView:self.view];
+    }
 }
 
 #pragma mark - Accessors
 
-- (NSMutableArray *)entriesSelected
+- (NSMutableArray *)selectedObjects
 {
-    if (_entriesSelected) {
-        return _entriesSelected;
+    if (_selectedObjects) {
+        return _selectedObjects;
     }
     
-    _entriesSelected = [NSMutableArray new];
-    return _entriesSelected;
+    _selectedObjects = [NSMutableArray new];
+    return _selectedObjects;
 }
 
 #pragma mark - Actions 
@@ -142,7 +92,8 @@
                      [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                      
                      // Create the project and hold the object to maintain a relation between the screenshots and the parent
-                     NSString *name = [[alertView textFieldAtIndex:0].text stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
+                     NSString *name = [alertView textFieldAtIndex:0].text;
+                     name = [name stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
                      if (![name isEqualToString:@""]) {
                          
                          [Manager createProjectWithName:name
@@ -153,9 +104,7 @@
                                           
                                           /* Push to the screenshot screen if the project has been created successfully */
                                           if (!error) {
-                                              id csViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ScreenShots"];
-                                              [csViewController setProject:object];
-                                              [self.navigationController pushViewController:csViewController animated:YES];
+                                              [self performSegueWithIdentifier:@"ScreenShots" sender:object];
                                               
                                           /* Show the error */
                                           } else {
@@ -172,7 +121,7 @@
 
 - (void)save:(id)sender
 {
-    NSDictionary *info = @{self.sourceName: self.entriesSelected};
+    NSDictionary *info = @{self.sourceName: self.selectedObjects};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Save ScreenShot Info"
                                                         object:self
                                                       userInfo:info];
@@ -187,28 +136,41 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (PFQuery *)queryForTable
 {
-    return [entries_ count];
+    self.parseClassName = (self.sourceName) ? self.sourceName : @"Project";
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    
+    // If no objects are loaded in memory, we look to the cache first to fill the table
+    // and then subsequently do a query against the network.
+    if (self.objects.count == 0) {
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+    
+    [query orderByAscending:@"name"];
+    
+    return query;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+                        object:(PFObject *)object
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    static NSString *cellIdentifier = @"Cell";
+    PFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    [self configureCell:cell atIndexPath:indexPath];
+    [self configureCell:cell withObject:object];
     
     return cell;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(PFTableViewCell *)cell withObject:(PFObject *)object
 {
-    PFObject *entry = [entries_ objectAtIndex:indexPath.row];
-    [cell.textLabel setText:entry[@"name"]];
+    [cell.textLabel setText:object[@"name"]];
     
     if (self.sourceName) {
         /* Check or uncheck the previous chosen data */
-        if ([self selectedEntriesdoesContain:entry]) {
+        if ([Manager objects:self.selectedObjects contain:object]) {
             [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
         } else {
             [cell setAccessoryType:UITableViewCellAccessoryNone];
@@ -222,7 +184,7 @@
 {
     if (self.sourceName) {
         // Retrieve the object
-        PFObject *entry = [entries_ objectAtIndex:indexPath.row];
+        PFObject *object = [self.objects objectAtIndex:indexPath.row];
         
         /* Mark the chosen info */
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -230,25 +192,31 @@
             [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
             
             // Hold the object selected
-            [self.entriesSelected addObject:entry];
+            [self.selectedObjects addObject:object];
           
             /* Unmark unwanted info */
         } else {
             [cell setAccessoryType:UITableViewCellAccessoryNone];
             
             // Take off the object unselected
-            PFObject *entryFound = [self selectedEntriesdoesContain:entry];
-            if (entryFound) {
-                [self.entriesSelected removeObject:entryFound];
+            if ([Manager objects:self.selectedObjects contain:object]) {
+                [self.selectedObjects removeObject:object];
             }
         }
     } else {
-        id csViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ScreenShots"];
-        [csViewController setProject:[entries_ objectAtIndex:indexPath.row]];
-        [self.navigationController pushViewController:csViewController animated:YES];
+        [self performSegueWithIdentifier:@"ScreenShots" sender:[self objectAtIndexPath:indexPath]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(PFObject *)sender
+{
+    if ([[segue identifier] isEqualToString:@"ScreenShots"]) {
+        [[segue destinationViewController] setProject:sender];
+    }
 }
 
 @end

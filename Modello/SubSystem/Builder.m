@@ -10,4 +10,43 @@
 
 @implementation Builder
 
++ (PFObject *)createScreenshotFromInfo:(NSDictionary *)info
+                          parent:(PFObject *)parent
+{
+    /* Retrieve the info held */
+    PFObject *screenshot = [PFObject objectWithClassName:@"ScreenShot"];
+    
+    // Parent
+    PFRelation *relation = [screenshot relationForKey:@"parent"];
+    [relation addObject:parent];
+    
+    // Image, UX, UI
+    [info enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        
+        if ([obj isKindOfClass:[NSArray class]]) {
+            PFRelation *relation = [screenshot relationForKey:[key lowercaseString]];
+            [(NSArray *)obj enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                [relation addObject:obj];
+            }];
+            
+        } else {
+            [screenshot setValue:[PFFile fileWithData:obj] forKey:[key lowercaseString]];
+        }
+    }];
+
+    return screenshot;
+}
+
++ (PFObject *)updateProject:(PFObject *)project withInfo:(NSDictionary *)newInfo
+{
+    [newInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        PFRelation *relation = [project relationForKey:[key lowercaseString]];
+        [(NSArray *)obj enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [relation addObject:obj];
+        }];
+    }];
+    
+    return project;
+}
+
 @end

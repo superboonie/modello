@@ -14,8 +14,8 @@
 
 @interface Manager : NSObject
 
-+ (void)findObjectsOfSource:(NSString *)source
-          completionHandler:(void(^)(NSArray *objects, NSError *error))handler;
++ (BOOL)objects:(NSArray *)objects
+        contain:(PFObject *)object;
 
 + (void)createProjectWithName:(NSString *)name
             completionHandler:(void(^)(PFObject *object, NSError *error))handler;
