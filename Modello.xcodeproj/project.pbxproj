@@ -518,8 +518,8 @@
 			baseConfigurationReference = AC4A82F8952BF9E5440A0E14 /* Pods-Modello.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ziad tamim (L2P4NKNPG8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ziad tamim (L2P4NKNPG8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nanaimo Studio LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nanaimo Studio LLC";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -528,7 +528,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "77796fad-5b4d-45e2-b759-425ad40368f5";
+				PROVISIONING_PROFILE = "03673672-286b-4120-9128-88c3134e433c";
 			};
 			name = Debug;
 		};
@@ -537,8 +537,8 @@
 			baseConfigurationReference = 5FACE0FF8160C9FFD51AFB16 /* Pods-Modello.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Nanaimo Studio, LLC (9Y7TGLZSB3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nanaimo Studio, LLC (9Y7TGLZSB3)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nanaimo Studio LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nanaimo Studio LLC";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -547,7 +547,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "26eaec75-3feb-46c2-b20a-ba1918c1d7c3";
+				PROVISIONING_PROFILE = "03673672-286b-4120-9128-88c3134e433c";
 			};
 			name = Release;
 		};

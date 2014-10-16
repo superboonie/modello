@@ -198,8 +198,8 @@
                 
                 if (![[obj valueForKey:key] count]) {
                     result = NO;
-                    [UIAlertView showWithTitle:@"Error"
-                                       message:[NSString stringWithFormat:@"Please enter %@ for photo number %lu", placeholders_[idx + 1], (unsigned long)index + 1]
+                    [UIAlertView showWithTitle:@"Submit Error"
+                                       message:[NSString stringWithFormat:@"Please enter %@ for screenshot #%lu", placeholders_[idx + 1], (unsigned long)index + 1]
                              cancelButtonTitle:@"OK"
                              completionHandler:NULL];
                     *stop = YES;
@@ -269,7 +269,7 @@
     // Change the placeholder
     UILabel *label = (UILabel *)self.labels[0];
     [label setTextColor:[UIColor blackColor]];
-    [label setText:@"Photos Attached"];
+    [label setText:@"Screenshots attached"];
     
     // Hold the image taken
     [info enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
