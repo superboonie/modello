@@ -6,24 +6,40 @@
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>46F1403F-070E-486A-B9DC-35EBAF5B8A82</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Modello</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>31A3108DEE9EE5445B68829092656D67408AAB69</key>
 		<string>https://github.com/ziadtamim/TLAlertBlocks.git</string>
+		<key>59D337176755F31C4AA9AA45FE645A9449FB7263</key>
+		<string>https://github.com/superboonie/modello.git</string>
 	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Modello.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>31A3108DEE9EE5445B68829092656D67408AAB69</key>
-		<string>TLAlertBlocks</string>
+		<string>../../TLAlertBlocks</string>
+		<key>59D337176755F31C4AA9AA45FE645A9449FB7263</key>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/ziadtamim/TLAlertBlocks.git</string>
+	<string>https://github.com/superboonie/modello.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>31A3108DEE9EE5445B68829092656D67408AAB69</string>
+	<string>59D337176755F31C4AA9AA45FE645A9449FB7263</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>59D337176755F31C4AA9AA45FE645A9449FB7263</string>
+			<key>IDESourceControlWCCName</key>
+			<string>modello</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
