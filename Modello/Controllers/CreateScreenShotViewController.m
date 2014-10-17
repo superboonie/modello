@@ -201,7 +201,15 @@
     [screenshotInfo_ enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((width * idx), 0, width, height)];
         [imageView setContentMode:UIViewContentModeScaleAspectFit];
-        [imageView setImage:[UIImage imageWithData:obj[@"imageFile"]]];
+        /* Load images from the server */
+        if ([obj[@"imageFile"] isKindOfClass:[PFFile class]]) {
+            [(PFFile *)obj[@"imageFile"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                [imageView setImage:[UIImage imageWithData:data]];
+            }];
+        /* Load local images */
+        } else {
+            [imageView setImage:[UIImage imageWithData:obj[@"imageFile"]]];
+        }
         [self.scrollView addSubview:imageView];
     }];
 }

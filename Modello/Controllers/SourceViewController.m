@@ -25,7 +25,7 @@
         // This table displays items in the Todo class
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
-        self.objectsPerPage = 25;
+        self.objectsPerPage = 5;
     }
     return self;
 }
@@ -181,6 +181,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    
+    // Load more
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell.textLabel.text isEqualToString:@"Load more..."]) {
+        return;
+    }
+    
+    // Edit the project
     if (self.sourceName) {
         // Retrieve the object
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
@@ -189,14 +198,12 @@
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         if (cell.accessoryType == UITableViewCellAccessoryNone) {
             [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-            
             // Hold the object selected
             [self.selectedObjects addObject:object];
           
             /* Unmark unwanted info */
         } else {
             [cell setAccessoryType:UITableViewCellAccessoryNone];
-            
             // Take off the object unselected
             if ([Manager objects:self.selectedObjects contain:object]) {
                 [self.selectedObjects removeObject:object];

@@ -79,29 +79,27 @@
         
         [screenshots enumerateObjectsUsingBlock:^(PFObject *screenshot, NSUInteger idx, BOOL *stop) {
             
+            // Image
             PFFile *file = screenshot[@"imagefile"];
-            [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                NSMutableDictionary *parsedScreenshot = [@{@"imageFile": data} mutableCopy];
-                
-                /* */
-                [screenshot fetchObjectsInRelationWithKeys:@[@"UserExperience", @"UserInterface"]
-                                         complationHandler:^(NSDictionary *objects, NSError *error) {
-                                             
-                                             if (error) {
-                                                 handler(nil, error);
-                                                 return;
-                                             }
-                                             
-                                             /* */
-                                             [parsedScreenshot addEntriesFromDictionary:objects];
-                                             [screenshotsInfo addObject:parsedScreenshot];
-                                             
-                                             if ([screenshotsInfo count] == [screenshots count]) {
-                                                 handler(screenshotsInfo, nil);
-                                             }
-                                         }];
-            }];
+            NSMutableDictionary *parsedScreenshot = [@{@"imageFile": file} mutableCopy];
             
+            /* Image's info */
+            [screenshot fetchObjectsInRelationWithKeys:@[@"UserExperience", @"UserInterface"]
+                                     complationHandler:^(NSDictionary *objects, NSError *error) {
+                                         
+                                         if (error) {
+                                             handler(nil, error);
+                                             return;
+                                         }
+                                         
+                                         /* */
+                                         [parsedScreenshot addEntriesFromDictionary:objects];
+                                         [screenshotsInfo addObject:parsedScreenshot];
+                                         
+                                         if ([screenshotsInfo count] == [screenshots count]) {
+                                             handler(screenshotsInfo, nil);
+                                         }
+                                     }];
         }];
     }];
 }
