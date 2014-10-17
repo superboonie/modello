@@ -25,7 +25,7 @@
         // This table displays items in the Todo class
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
-        self.objectsPerPage = 5;
+        self.objectsPerPage = 25;
     }
     return self;
 }
