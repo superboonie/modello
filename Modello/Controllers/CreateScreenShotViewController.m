@@ -8,6 +8,7 @@
 
 #import "CreateScreenShotViewController.h"
 
+#import "UILabel+Additions.h"
 #import "UIActionSheet+Blocks.h"
 #import "ELCImagePickerController.h"
 #import "SourceViewController.h"
@@ -47,123 +48,58 @@
     
     // Display Previous
     if ([self.project valueForKey:@"category"]) {
+        /* */
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
-        [[[self.project relationForKey:@"platform"] query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            [projectInfo_ setValue:objects forKey:@"Platform"];
+        /* */
+        [Manager fetchProjectInfo:self.project
+                completionHandler:^(NSDictionary *projectInfo, NSArray *screenshotInfo, NSError *error) {
             
-            [[[self.project relationForKey:@"category"] query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                [projectInfo_ setValue:objects forKey:@"Category"];
-                
-                PFQuery *query = [PFQuery queryWithClassName:@"ScreenShot"];
-                [query whereKey:@"parent" equalTo:self.project];
-                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    /* Hide HUD when data is loaded */
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
                     
-                    [objects enumerateObjectsUsingBlock:^(PFObject *screenshot, NSUInteger idx, BOOL *stop) {
-                        
-                        PFFile *file = screenshot[@"imagefile"];
-                        [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                            NSMutableDictionary *parsedScreenshot = [@{@"imageFile": data} mutableCopy];
-                            
-                            [[[screenshot relationForKey:@"userexperience"] query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                                [parsedScreenshot setObject:objects forKey:@"UserExperience"];
-                                
-                                [[[screenshot relationForKey:@"userinterface"] query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                                    [parsedScreenshot setObject:objects forKey:@"UserInterface"];
-                                    
-                                    [screenshotInfo_ addObject:parsedScreenshot];
-                                    
-                                    
-                                    /* Hide HUD when data is loaded */
-                                    [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                    // Update labels
-                                    [self updatePlaceholders];
-                                    [self refreshGallery];
-                                }];
-                            }];
-                        }];
-                        
-                    }];
+                    // Save data retrieved
+                    projectInfo_ = [projectInfo mutableCopy];
+                    screenshotInfo_ = [screenshotInfo mutableCopy];
                     
-                    
-                }];
-                
-            }];
+                    // Update labels
+                    [self refreshData];
+                    [self refreshGallery];
         }];
-        
     }
 }
 
-#pragma mark - 
+#pragma mark -
 
-- (void)resetAll
+- (void)refreshData
 {
-    [projectInfo_ removeAllObjects]; [screenshotInfo_ removeAllObjects];
-    [self.labels enumerateObjectsUsingBlock:^(UILabel *label, NSUInteger idx, BOOL *stop) {
-        [label setText:placeholders_[idx]];
-        [label setTextColor:[UIColor lightGrayColor]];
+    [projectInfo_ enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [UILabel updateLabels:self.labels
+                  withObjects:obj
+                          key:key
+                      classes:classesNames_
+                 placeholders:placeholders_];
     }];
     
-    [self.scrollView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [obj removeFromSuperview];
-    }];
-}
-
-- (void)updatePlaceholders
-{
-    [projectInfo_ enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
-        
-        /* Collect the infos chosen */
-        NSMutableArray *names = [NSMutableArray new];
-        [value enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            [names addObject:obj[@"name"]];
-        }];
-        
-        /* Update the placeholder witth the infos chosen */
-        NSUInteger index = [classesNames_ indexOfObject:key];
-        UILabel *label = self.labels[index + 1];
-        /* Change the color of the label and put the chosen infos */
-        if ([names count] > 0) {
-            [label setTextColor:[UIColor blackColor]];
-            [label setText:[names componentsJoinedByString:@", "]];
-            
-            /* If there is no info chosen, show the placeholder */
-        } else {
-            [label setTextColor:[UIColor lightGrayColor]];
-            [label setText:placeholders_[index + 1]];
-        }
-    }];
     
-    if (![screenshotInfo_ count]) {
-        return;
+    if ([screenshotInfo_ count]) {
+        UILabel *label = (UILabel *)self.labels[0];
+        [label setTextColor:[UIColor blackColor]];
+        [label setText:@"Screenshots attached"];
     }
     
-    NSDictionary *currentInfo = screenshotInfo_[currentIndex_];
-    [currentInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-
-        if (![key isEqualToString:@"imageFile"]) {
-
-            /* Collect the infos chosen */
-            NSMutableArray *names = [NSMutableArray new];
-            [obj enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                [names addObject:obj[@"name"]];
-            }];
-
-            /* Update the placeholder witth the infos chosen */
-            NSUInteger index = [classesNames_ indexOfObject:key];
-            UILabel *label = self.labels[index + 1];
-            /* Change the color of the label and put the chosen infos */
-            if ([names count] > 0) {
-                [label setTextColor:[UIColor blackColor]];
-                [label setText:[names componentsJoinedByString:@", "]];
-                
-              /* If there is no info chosen, show the placeholder */
-            } else {
-                [label setTextColor:[UIColor lightGrayColor]];
-                [label setText:placeholders_[index + 1]];
+    if ([screenshotInfo_ count]) {
+        NSDictionary *currentInfo = screenshotInfo_[currentIndex_];
+        [currentInfo enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            
+            if (![key isEqualToString:@"imageFile"]) {
+                [UILabel updateLabels:self.labels
+                          withObjects:obj
+                                  key:key
+                              classes:classesNames_
+                         placeholders:placeholders_];
             }
-        }
-    }];
+        }];
+    }
 }
 
 - (BOOL)validate
@@ -198,8 +134,12 @@
                 
                 if (![[obj valueForKey:key] count]) {
                     result = NO;
+                    NSString *message = [NSString stringWithFormat:@"Please enter %@ for screenshot #%lu",
+                                         placeholders_[idx + 1],
+                                         (unsigned long)index + 1];
+                    
                     [UIAlertView showWithTitle:@"Submit Error"
-                                       message:[NSString stringWithFormat:@"Please enter %@ for screenshot #%lu", placeholders_[idx + 1], (unsigned long)index + 1]
+                                       message:message
                              cancelButtonTitle:@"OK"
                              completionHandler:NULL];
                     *stop = YES;
@@ -233,15 +173,30 @@
         [screenshotInfo_ replaceObjectAtIndex:currentIndex_ withObject:currentInfo];
     }
    
-    [self updatePlaceholders];
+    [self refreshData];
 }
 
 #pragma mark - Gallery
 
 - (void)refreshGallery
 {
-    __block float width = CGRectGetWidth(self.scrollView.bounds) , height = CGRectGetHeight(self.scrollView.bounds);
+    // Check if there is any screenshot
+    if (![screenshotInfo_ count]) {
+        return;
+    }
     
+    // Clear the old images before showing the new ones
+    [self clearGallery];
+    
+    // Enable user interaction when the user has selected images
+    for (int i = 2; i <= 3; i++) {
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i
+                                                                                         inSection:1]];
+        [cell setUserInteractionEnabled:YES];
+    }
+    
+    // Show the images selected
+    __block float width = CGRectGetWidth(self.scrollView.bounds) , height = CGRectGetHeight(self.scrollView.bounds);
     [self.scrollView setContentSize:CGSizeMake(width * [screenshotInfo_ count], height)];
     [screenshotInfo_ enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((width * idx), 0, width, height)];
@@ -251,15 +206,29 @@
     }];
 }
 
+- (void)clearGallery
+{
+    // Disable user interaction when there is no image
+    for (int i = 2; i <= 3; i++) {
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath
+                                                                       indexPathForRow:i inSection:1]];
+        [cell setUserInteractionEnabled:NO];
+    }
+    
+    [self.scrollView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [obj removeFromSuperview];
+    }];
+}
+
 #pragma mark - Scroll delegate
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    // Check the selected photo to update data related to it
     float width = CGRectGetWidth(self.scrollView.bounds);
     float offset = scrollView.contentOffset.x;
     currentIndex_ = offset/width;
-    
-    [self updatePlaceholders];
+    [self refreshData];
 }
 
 #pragma mark - ELC delegate 
@@ -325,6 +294,17 @@
     }];
 }
 
+- (void)resetAll
+{
+    [projectInfo_ removeAllObjects]; [screenshotInfo_ removeAllObjects];
+    [self.labels enumerateObjectsUsingBlock:^(UILabel *label, NSUInteger idx, BOOL *stop) {
+        [label setText:placeholders_[idx]];
+        [label setTextColor:[UIColor lightGrayColor]];
+    }];
+    
+    [self clearGallery];
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -338,15 +318,16 @@
       /* Display the source chosen */
     } else if (indexPath.section == 1) {
         NSString *className = classesNames_[indexPath.row];
-        SourceViewController *sourceViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Source"];
+        id sourceViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Source"];
         [sourceViewController setSourceName:className];
+        
+        // Pass selected Infos
         if ([projectInfo_ objectForKey:className]) {
             [sourceViewController setSelectedObjects:[projectInfo_ valueForKey:className]];
-        }
-        
-        else if ([screenshotInfo_ count]){
-            NSDictionary *entry = [screenshotInfo_ objectAtIndex:currentIndex_];
-            [sourceViewController setSelectedObjects:[[entry valueForKey:className] mutableCopy]];
+            
+        } else if ([screenshotInfo_ count]){
+            NSDictionary *object = screenshotInfo_[currentIndex_];
+            [sourceViewController setSelectedObjects:[[object valueForKey:className] mutableCopy]];
         }
         [self.navigationController pushViewController:sourceViewController animated:YES];
         

@@ -36,7 +36,6 @@
     
     /* Retieve the options */
     if (self.sourceName) {
-        
         // Add the save bar button to save the screenshots
         UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                               target:self
@@ -138,7 +137,7 @@
 
 - (PFQuery *)queryForTable
 {
-    self.parseClassName = (self.sourceName) ? self.sourceName : @"Project";
+    self.parseClassName = (self.sourceName)? self.sourceName: @"Project";
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     
     // If no objects are loaded in memory, we look to the cache first to fill the table

@@ -28,6 +28,7 @@
                 inProject:(PFObject *)project
         completionHandler:(void(^)(NSError *error))handler;
 
-
++ (void)fetchProjectInfo:(PFObject *)project
+       completionHandler:(void(^)(NSDictionary *projectInfo, NSArray *screenshotInfo, NSError *error))handler;
 
 @end

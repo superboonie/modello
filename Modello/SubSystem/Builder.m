@@ -10,6 +10,8 @@
 
 @implementation Builder
 
+#pragma mark - ScreenShots
+
 + (PFObject *)createScreenshotFromInfo:(NSDictionary *)info
                           parent:(PFObject *)parent
 {
@@ -36,6 +38,8 @@
 
     return screenshot;
 }
+
+#pragma mark - Project
 
 + (PFObject *)updateProject:(PFObject *)project withInfo:(NSDictionary *)newInfo
 {
